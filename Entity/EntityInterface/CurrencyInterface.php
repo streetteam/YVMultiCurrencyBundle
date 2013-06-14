@@ -1,0 +1,53 @@
+<?php
+
+namespace YV\MultiCurrencyBundle\Entity\EntityInterface;
+
+interface CurrencyInterface
+{
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return CurrencyAccountInterface
+     */
+    public function setCreatedAt($createdAt);
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt();
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return CurrencyInterface
+     */
+    public function setName($name);
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName();
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return CurrencyInterface
+     */
+    public function setSlug($slug);
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getSlug();
+    
+}
+
