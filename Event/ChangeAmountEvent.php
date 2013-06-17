@@ -1,14 +1,16 @@
 <?php
 
-namespace YV\CurrencyBundle\Event;
+namespace YV\MultiCurrencyBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
-use YV\CurrencyBundle\Entity\EntityInterface\CurrencyInterface;
-use YV\CurrencyBundle\Entity\EntityInterface\UserInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\UserInterface;
 
 class ChangeAmountEvent extends Event
 {
+    const NAME = 'yv_multi_currency.change_amount';
+    
     protected $currency;
 
     protected $user;

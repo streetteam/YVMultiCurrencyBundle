@@ -1,11 +1,11 @@
 <?php
 
-namespace YV\MultiCurrencyBundle\Entity;
+namespace YV\MultiCurrencyBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
-use YV\MultiCurrencyBundle\Entity\EntityInterface\UserInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\UserInterface;
 
 /**
  * 

@@ -1,6 +1,6 @@
 <?php
 
-namespace YV\MultiCurrencyBundle\Entity\EntityInterface;
+namespace YV\MultiCurrencyBundle\Model\ModelInterface;
 
 interface CurrencyAccountInterface
 {

@@ -1,3 +1,13 @@
 services:
-    #
-    #      
+    chains.manager_chain:
+        class: YV\MultiCurrencyBundle\Lib\Chain\ManagerChain     
+        
+    # Event Listeners 
+    currency_listener.default:
+        class: YV\MultiCurrencyBundle\EventListener\CurrencyListener
+        arguments: [@chains.manager_chain]
+        tags:
+            - { name: kernel.event_listener, event: yv_multi_currency.change_amount, method: onChangeAmount }
+            
+imports:
+    - { resource: managers.yml }

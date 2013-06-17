@@ -1,0 +1,21 @@
+services:
+    managers.account_manager:
+        class: YV\MultiCurrencyBundle\Model\ModelManager\AccountManager
+        arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, 'YV\MultiCurrencyBundle\Entity\Account' ]
+        tags:
+            -  { name: managers.manager, alias: account_manager }          
+    managers.currency_manager:
+        class: YV\MultiCurrencyBundle\Model\ModelManager\CurrencyManager
+        arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, 'YV\MultiCurrencyBundle\Entity\Currency' ]
+        tags:
+            -  { name: managers.manager, alias: currency_manager }          
+    managers.currency_account_manager:
+        class: YV\MultiCurrencyBundle\Model\ModelManager\CurrencyAccountManager
+        arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, 'YV\MultiCurrencyBundle\Entity\CurrencyAccount' ]
+        tags:
+            -  { name: managers.manager, alias: currency_account_manager }          
+    managers.transaction_manager:
+        class: YV\MultiCurrencyBundle\Model\ModelManager\TransactionManager
+        arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, 'YV\MultiCurrencyBundle\Entity\Transaction' ]
+        tags:
+            -  { name: managers.manager, alias: transaction_manager }          
