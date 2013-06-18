@@ -10,6 +10,8 @@ use YV\MultiCurrencyBundle\Event\ChangeAmountEvent;
 use YV\MultiCurrencyBundle\Event\PreChangeAmountEvent;
 use YV\MultiCurrencyBundle\Event\PostChangeAmountEvent;
 
+use YV\MultiCurrencyBundle\YVMultiCurrencyEvents;
+
 class CurrencyAccountManager extends BaseManager
 {
     public function persist(CurrencyAccountInterface $currencyAccount)
@@ -42,7 +44,7 @@ class CurrencyAccountManager extends BaseManager
         $result = true;
         
         $preEvent = new PreChangeAmountEvent($event->getCurrency(), $event->getUser(), $event->getAmount(), $event->getTitle());
-        $this->dispatcher->dispatch(PreChangeAmountEvent::NAME, $preEvent);
+        $this->dispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_PRE_CHANGE_AMOUNT, $preEvent);
         
         $newAmount = $currencyAccount->getAmount() + $event->getAmount();
         
@@ -54,7 +56,7 @@ class CurrencyAccountManager extends BaseManager
         }
         
         $postEvent = new PostChangeAmountEvent($event->getCurrency(), $event->getUser(), $event->getAmount(), $event->getTitle(), $result);
-        $this->dispatcher->dispatch(PostChangeAmountEvent::NAME, $postEvent);
+        $this->dispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_POST_CHANGE_AMOUNT, $postEvent);
         
         return $result;
     }

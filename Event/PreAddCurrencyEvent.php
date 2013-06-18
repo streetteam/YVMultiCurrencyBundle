@@ -2,7 +2,7 @@
 
 namespace YV\MultiCurrencyBundle\Event;
 
-class PreChangeAmountEvent extends ChangeAmountEvent
+class PreAddCurrencyEvent extends AddCurrencyEvent
 {
     
 }

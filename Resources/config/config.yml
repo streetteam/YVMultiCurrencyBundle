@@ -1,0 +1,3 @@
+parameters:
+    kernel.file_upload_dir: "/web/uploads/%%s/%%s/images"
+    kernel.file_upload_root_dir: "%kernel.root_dir%/.."   
