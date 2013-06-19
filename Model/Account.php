@@ -12,7 +12,7 @@ use YV\MultiCurrencyBundle\Model\ModelInterface\UserInterface;
 
 /**
  * 
- * @MappedSuperclass
+ * @ORM\MappedSuperclass
  */
 abstract class Account implements AccountInterface
 {

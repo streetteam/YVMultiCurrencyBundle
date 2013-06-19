@@ -14,7 +14,7 @@ use YV\MultiCurrencyBundle\Model\ModelInterface\FileUploadableInterface;
 
 /**
  * 
- * @MappedSuperclass
+ * @ORM\MappedSuperclass
  */
 abstract class Currency implements CurrencyInterface, FileUploadableInterface
 {
