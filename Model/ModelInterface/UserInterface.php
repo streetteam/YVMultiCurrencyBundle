@@ -48,5 +48,19 @@ interface UserInterface
      * @return AccountInterface
      */
     public function getAccount();
+    
+    /**
+     * Check if user can delete currency
+     * 
+     * @return boolean
+     */
+    public function canDeleteCurrency();
+
+    /**
+     * Check if user can add currency
+     * 
+     * @return boolean
+     */
+    public function canAddCurrency();
 }
 

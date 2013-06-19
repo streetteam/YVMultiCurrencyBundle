@@ -152,4 +152,26 @@ abstract class User implements UserInterface
     {
         return $this->account;
     }
+
+    /**
+     * Check if user can delete currency
+     * @TODO integration
+     * 
+     * @return boolean
+     */
+    public function canDeleteCurrency()
+    {
+        return true;
+    }
+
+    /**
+     * Check if user can add currency
+     * @TODO integration
+     * 
+     * @return boolean
+     */
+    public function canAddCurrency()
+    {
+        return true;
+    }
 }

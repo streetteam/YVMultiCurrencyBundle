@@ -5,11 +5,16 @@ namespace YV\MultiCurrencyBundle\Listener;
 use YV\MultiCurrencyBundle\Lib\Chain;
 
 use YV\MultiCurrencyBundle\Event\ChangeAmountEvent;
+use YV\MultiCurrencyBundle\Event\AddCurrencyEvent;
+use YV\MultiCurrencyBundle\Event\DeleteCurrencyEvent;
 
 use YV\MultiCurrencyBundle\Model\User;
 use YV\MultiCurrencyBundle\Model\Account;
+use YV\MultiCurrencyBundle\Model\Currency;
 use YV\MultiCurrencyBundle\Model\CurrencyAccount;
 use YV\MultiCurrencyBundle\Model\Transaction;
+
+use YV\MultiCurrencyBundle\Model\Manager\CurrencyManager;
 
 class CurrencyListener
 {
@@ -27,7 +32,7 @@ class CurrencyListener
     /**
      * Change currency account amount.
      *
-     * @param ChangeAmountEvent $event The event
+     * @param ChangeAmountEvent $event
      */
     public function onChangeAmount(ChangeAmountEvent $event)
     {
@@ -55,8 +60,30 @@ class CurrencyListener
             $transactionManager->save($transaction);
         }
     }
-    
-    // @TODO add currency
-    // @TODO delete currency
-    
+
+    /**
+     * Delete currency.
+     *
+     * @param DeleteCurrencyEvent $event
+     */
+    public function onDeleteCurrency(DeleteCurrencyEvent $event)
+    {
+        $currencyManager = $this->chain->getCurrencyManager();
+        /* @var $currencyManager CurrencyManager */
+        
+        $currencyManager->deleteCurrency($event);
+    }
+
+    /**
+     * Add new currency.
+     *
+     * @param AddCurrencyEvent $event
+     */
+    public function onAddCurrency(AddCurrencyEvent $event)
+    {
+        $currencyManager = $this->chain->getCurrencyManager();
+        /* @var $currencyManager CurrencyManager */
+        
+        $currencyManager->addCurrency($event);
+    }
 }
