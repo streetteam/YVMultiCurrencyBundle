@@ -7,7 +7,7 @@ services:
         class: YV\MultiCurrencyBundle\Model\ModelManager\CurrencyManager
         arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, %yv_multi_currency.currency_class% ]
     
-    currency_account_manager.defult:
+    currency_account_manager.default:
         class: YV\MultiCurrencyBundle\Model\ModelManager\CurrencyAccountManager
         arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, %yv_multi_currency.currency_account_class% ]
     
