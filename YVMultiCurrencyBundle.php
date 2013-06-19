@@ -5,7 +5,7 @@ namespace YV\MultiCurrencyBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use TPN\ActivationBundle\Lib\CompilerPass\ManagerChainCompilerPass;
+use YV\MultiCurrencyBundle\Lib\CompilerPass\ManagerChainCompilerPass;
 
 class YVMultiCurrencyBundle extends Bundle
 {
