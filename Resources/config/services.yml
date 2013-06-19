@@ -16,7 +16,7 @@ services:
     
     doctrine.file_upload_listener:
         class:     YV\MultiCurrencyBundle\Listener\FileUploadListener
-        arguments: [ %kernel.file_upload_dir%, %kernel.file_upload_root_dir% ]
+        arguments: [ %yv_multi_currency.file_upload_dir%, %yv_multi_currency.file_upload_root_dir% ]
         tags:
             - { name: doctrine.event_listener, event: postPersist }
             - { name: doctrine.event_listener, event: preUpdate } 

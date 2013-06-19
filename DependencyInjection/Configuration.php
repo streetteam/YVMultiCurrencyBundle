@@ -27,6 +27,8 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('currency_class')->isRequired()->cannotBeEmpty()->end()
             ->scalarNode('currency_account_class')->isRequired()->cannotBeEmpty()->end()
             ->scalarNode('transaction_class')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('file_upload_dir')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('file_upload_root_dir')->isRequired()->cannotBeEmpty()->end()
             ->end();
 
         $this->addServiceSection($rootNode);

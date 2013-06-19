@@ -28,7 +28,10 @@ class YVMultiCurrencyExtension extends Extension
         $container->setParameter('yv_multi_currency.account_class', $config['account_class']);   
         $container->setParameter('yv_multi_currency.currency_class', $config['currency_class']);   
         $container->setParameter('yv_multi_currency.currency_account_class', $config['currency_account_class']);   
-        $container->setParameter('yv_multi_currency.transaction_class', $config['transaction_class']);   
+        $container->setParameter('yv_multi_currency.transaction_class', $config['transaction_class']);  
+        
+        $container->setParameter('yv_multi_currency.file_upload_root_dir', $config['file_upload_root_dir']);   
+        $container->setParameter('yv_multi_currency.file_upload_dir', $config['file_upload_dir']);   
         
         $container->setAlias('yv_multi_currency.account_manager', $config['service']['account_manager']);
         $container->setAlias('yv_multi_currency.currency_manager', $config['service']['currency_manager']);
