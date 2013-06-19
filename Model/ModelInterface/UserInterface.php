@@ -10,7 +10,7 @@ interface UserInterface
      * @param AccountInterface $account
      * @return UserInterface
      */
-    public function setAccount(AccountInterface $account = null);
+    public function setAccount(AccountInterface $account);
 
     /**
      * Get account
