@@ -1,0 +1,37 @@
+{
+    "name": "yv/multi-currency-bundle",
+    "minimum-stability": "dev",
+    "description": "Currency bundle for Symfony2",
+    "keywords": ["currency"],
+    "homepage": "https://github.com/yourvine/YVMultiCurrencyBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Piotr Tokarczyk"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.1",
+        "symfony/process": ">=2.1.0,<2.3-dev"
+    },
+    "require-dev": {
+        "twig/twig": "*",
+        "doctrine/doctrine-bundle": "*",
+        "symfony/yaml": "2.1.*",
+        "symfony/validator": "2.1.*",
+        "gedmo/doctrine-extensions": "2.3.*",
+        "stof/doctrine-extensions-bundle": "*"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "YV\\MultiCurrencyBundle": "" }
+    },
+    "target-dir": "YV/MultiCurrencyBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
+
