@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyAccountInterface;
 use YV\MultiCurrencyBundle\Model\ModelInterface\FileUploadableInterface;
 
 /**
@@ -43,6 +44,14 @@ abstract class Currency implements CurrencyInterface, FileUploadableInterface
     protected $slug;  
     
     /**
+     * The transactions related to this currency account
+     *
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="CurrencyAccount", mappedBy="currency")
+     */
+    protected $currencyAccounts;    
+    
+    /**
      * @var DateTime $createdAt
      *
      * @Gedmo\Timestampable(on="create")
@@ -67,6 +76,14 @@ abstract class Currency implements CurrencyInterface, FileUploadableInterface
     protected $uploadRootDir;
     
     protected $uploadDir; 
+    
+    /**
+     * Constructs a new instance of Account
+     */
+    public function __construct()
+    {
+        $this->currencyAccounts = new ArrayCollection();
+    }
     
     /**
      * Get id
@@ -277,5 +294,28 @@ abstract class Currency implements CurrencyInterface, FileUploadableInterface
         }
         
         return false;
+    }
+
+    /**
+     * Add currencyAccount
+     *
+     * @param CurrencyAccountInterface $currencyAccount
+     * @return Currency
+     */
+    public function addCurrencyAccount(CurrencyAccountInterface $currencyAccount)
+    {
+        $this->currencyAccounts[] = $currencyAccount;
+    
+        return $this;
+    }
+
+    /**
+     * Get CurrencyAccounts
+     *
+     * @return ArrayCollection
+     */
+    public function getCurrencyAccounts()
+    {
+        return $this->currencyAccounts;
     }     
 }

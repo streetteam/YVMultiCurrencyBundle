@@ -49,5 +49,20 @@ interface CurrencyInterface
      */
     public function getSlug();
     
+    /**
+     * Add currencyAccount
+     *
+     * @param CurrencyAccountInterface $currencyAccount
+     * @return Currency
+     */
+    public function addCurrencyAccount(CurrencyAccountInterface $currencyAccount);
+
+    /**
+     * Get CurrencyAccounts
+     *
+     * @return ArrayCollection
+     */
+    public function getCurrencyAccounts();
+    
 }
 

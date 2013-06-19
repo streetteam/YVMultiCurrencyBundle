@@ -6,6 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 use YV\MultiCurrencyBundle\Model\ModelInterface\AccountInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyAccountInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\UserInterface;
 
 /**
  * 
@@ -89,10 +92,10 @@ abstract class Account implements AccountInterface
     /**
      * Set user
      *
-     * @param User $user
+     * @param UserInterface $user
      * @return Account
      */
-    public function setUser(User $user)
+    public function setUser(UserInterface $user)
     {
         $this->user = $user;
     
@@ -102,7 +105,7 @@ abstract class Account implements AccountInterface
     /**
      * Get user
      *
-     * @return User
+     * @return UserInterface
      */
     public function getUser()
     {
@@ -112,10 +115,10 @@ abstract class Account implements AccountInterface
     /**
      * Add currency account
      *
-     * @param CurrencyAccount $currencyAccount
+     * @param CurrencyAccountInterface $currencyAccount
      * @return Account
      */
-    public function addCurrencyAccount(CurrencyAccount $currencyAccount)
+    public function addCurrencyAccount(CurrencyAccountInterface $currencyAccount)
     {
         $this->currencyAccounts[] = $currencyAccount;
     
@@ -133,10 +136,10 @@ abstract class Account implements AccountInterface
     }
     
     /**
-     * @param Currency $currency
-     * @return CurrencyAccount
+     * @param CurrencyInterface $currency
+     * @return CurrencyAccountInterface
      */
-    public function getCurrencyAccount(Currency $currency)
+    public function getCurrencyAccount(CurrencyInterface $currency)
     {
         $currencyAccount = null;
         

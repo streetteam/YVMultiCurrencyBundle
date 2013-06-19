@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 use YV\MultiCurrencyBundle\Model\ModelInterface\TransactionInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyAccountInterface;
 
 /**
  * 
@@ -134,10 +135,10 @@ abstract class Transaction implements TransactionInterface
     /**
      * Set currency account
      *
-     * @param CurrencyAccount $currencyAccount
+     * @param CurrencyAccountInterface $currencyAccount
      * @return Transaction
      */
-    public function setCurrencyAccount(CurrencyAccount $currencyAccount)
+    public function setCurrencyAccount(CurrencyAccountInterface $currencyAccount)
     {
         $this->currencyAccount = $currencyAccount;
     
@@ -147,7 +148,7 @@ abstract class Transaction implements TransactionInterface
     /**
      * Get currency account
      *
-     * @return CurrencyAccount
+     * @return CurrencyAccountInterface
      */
     public function getCurrencyAccount()
     {

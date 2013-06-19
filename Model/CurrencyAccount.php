@@ -6,6 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyAccountInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\AccountInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\TransactionInterface;
 
 /**
  * 
@@ -128,10 +131,10 @@ abstract class CurrencyAccount implements CurrencyAccountInterface
     /**
      * Set account
      *
-     * @param Account $account
+     * @param AccountInterface $account
      * @return CurrencyAccount
      */
-    public function setAccount(Account $account)
+    public function setAccount(AccountInterface $account)
     {
         $this->account = $account;
     
@@ -141,7 +144,7 @@ abstract class CurrencyAccount implements CurrencyAccountInterface
     /**
      * Get account
      *
-     * @return Account
+     * @return AccountInterface
      */
     public function getAccount()
     {
@@ -151,10 +154,10 @@ abstract class CurrencyAccount implements CurrencyAccountInterface
     /**
      * Set currency
      *
-     * @param Currency $currency
+     * @param CurrencyInterface $currency
      * @return CurrencyAccount
      */
-    public function setCurrency(Currency $currency)
+    public function setCurrency(CurrencyInterface $currency)
     {
         $this->currency = $currency;
     
@@ -164,7 +167,7 @@ abstract class CurrencyAccount implements CurrencyAccountInterface
     /**
      * Get currency
      *
-     * @return Currency
+     * @return CurrencyInterface
      */
     public function getCurrency()
     {
@@ -174,10 +177,10 @@ abstract class CurrencyAccount implements CurrencyAccountInterface
     /**
      * Add transaction
      *
-     * @param Transaction $transaction
+     * @param TransactionInterface $transaction
      * @return CurrencyAccount
      */
-    public function addTransaction(Transaction $transaction)
+    public function addTransaction(TransactionInterface $transaction)
     {
         $this->transactions[] = $transaction;
     

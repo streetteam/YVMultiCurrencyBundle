@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 use YV\MultiCurrencyBundle\Model\ModelInterface\UserInterface;
+use  YV\MultiCurrencyBundle\Model\ModelInterface\AccountInterface;
 
 /**
  * 
@@ -73,10 +74,10 @@ abstract class User implements UserInterface
     /**
      * Set account
      *
-     * @param Account $account
+     * @param AccountInterface $account
      * @return User
      */
-    public function setAccount(Account $account)
+    public function setAccount(AccountInterface $account)
     {
         $this->account = $account;
     
@@ -86,7 +87,7 @@ abstract class User implements UserInterface
     /**
      * Get account
      *
-     * @return Account
+     * @return AccountInterface
      */
     public function getAccount()
     {
