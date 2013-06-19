@@ -23,20 +23,6 @@ abstract class User implements UserInterface
     protected $id;
     
     /**
-     * The name of the user
-     * 
-     * @ORM\Column(name="name", type="string", length=100, nullable=true)
-     */
-    protected $name;
-
-    /**
-     * The email of the user
-     * 
-     * @ORM\Column(name="email", type="string", length=100)
-     */
-    protected $email; 
-    
-    /**
      * The account related to this user
      *
      * @ORM\OneToOne(targetEntity="Account", mappedBy="user")
@@ -59,52 +45,6 @@ abstract class User implements UserInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return User
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 
     /**
