@@ -20,10 +20,34 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('yv_multi_currency');
       
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+            ->scalarNode('account_class')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('currency_class')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('currency_account_class')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('transaction_class')->isRequired()->cannotBeEmpty()->end()
+            ->end();
+
+        $this->addServiceSection($rootNode);
 
         return $treeBuilder;
+    }
+    
+    private function addServiceSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode('service')
+                    ->addDefaultsIfNotSet()
+                        ->children()
+                            ->scalarNode('account_manager')->defaultValue('account_manager.default')->end()
+                            ->scalarNode('currency_manager')->defaultValue('currency_manager.default')->end()
+                            ->scalarNode('currency_account_manager')->defaultValue('currency_account_manager.default')->end()
+                            ->scalarNode('transaction_manager')->defaultValue('transaction_manager.default')->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
     }
 }

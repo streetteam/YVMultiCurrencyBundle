@@ -1,13 +1,18 @@
+imports:
+    - { resource: managers.yml }
+
 services:
     chains.manager_chain:
         class: YV\MultiCurrencyBundle\Lib\Chain\ManagerChain     
         
     # Listeners 
     currency_listener.default:
-        class: YV\MultiCurrencyBundle\Listener\DefaultListener
+        class: YV\MultiCurrencyBundle\Listener\CurrencyListener
         arguments: [@chains.manager_chain]
         tags:
             - { name: kernel.event_listener, event: yv_multi_currency.change_amount, method: onChangeAmount }
+            - { name: kernel.event_listener, event: yv_multi_currency.delete_currency, method: onDeleteCurrency }
+            - { name: kernel.event_listener, event: yv_multi_currency.add_currency, method: onAddCurrency }
     
     doctrine.file_upload_listener:
         class:     YV\MultiCurrencyBundle\Listener\FileUploadListener
@@ -16,6 +21,3 @@ services:
             - { name: doctrine.event_listener, event: postPersist }
             - { name: doctrine.event_listener, event: preUpdate } 
             - { name: doctrine.event_listener, event: postLoad }
-            
-imports:
-    - { resource: managers.yml }
