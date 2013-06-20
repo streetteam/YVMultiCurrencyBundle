@@ -2,7 +2,9 @@
 
 namespace YV\MultiCurrencyBundle\Model\ModelInterface;
 
-interface CurrencyInterface
+use YV\MultiCurrencyBundle\Model\ModelInterface\FileUploadableInterface;
+
+interface CurrencyInterface extends FileUploadableInterface
 {
     /**
      * Set createdAt

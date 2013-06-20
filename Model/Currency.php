@@ -10,13 +10,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyInterface;
 use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyAccountInterface;
-use YV\MultiCurrencyBundle\Model\ModelInterface\FileUploadableInterface;
 
 /**
  * 
  * @ORM\MappedSuperclass
  */
-abstract class Currency implements CurrencyInterface, FileUploadableInterface
+abstract class Currency implements CurrencyInterface
 {
     /**
      * @var integer $id
