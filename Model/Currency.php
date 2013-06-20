@@ -43,7 +43,7 @@ abstract class Currency implements CurrencyInterface
     protected $slug;  
     
     /**
-     * The transactions related to this currency account
+     * The currency accounts related to this currency
      *
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="CurrencyAccount", mappedBy="currency")

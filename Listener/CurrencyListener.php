@@ -2,7 +2,7 @@
 
 namespace YV\MultiCurrencyBundle\Listener;
 
-use YV\MultiCurrencyBundle\Lib\Chain;
+use YV\MultiCurrencyBundle\Lib\Chain\ManagerChain;
 
 use YV\MultiCurrencyBundle\Event\ChangeAmountEvent;
 use YV\MultiCurrencyBundle\Event\AddCurrencyEvent;
@@ -24,7 +24,7 @@ class CurrencyListener
      * Constructs a new instance of CurrencyListener.
      *
      */
-    public function __construct(Chain $chain)
+    public function __construct(ManagerChain $chain)
     {
         $this->chain = $chain;
     }
