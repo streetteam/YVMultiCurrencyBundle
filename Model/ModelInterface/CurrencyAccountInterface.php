@@ -79,10 +79,5 @@ interface CurrencyAccountInterface
      */
     public function getTransactions();
     
-    /**
-     * @param integer $amount
-     * @return boolean false if not enough amount of currency
-     */
-    public function changeAmount($amount);
 }
 
