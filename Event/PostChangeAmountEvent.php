@@ -2,6 +2,9 @@
 
 namespace YV\MultiCurrencyBundle\Event;
 
+use YV\MultiCurrencyBundle\Model\ModelInterface\CurrencyInterface;
+use YV\MultiCurrencyBundle\Model\ModelInterface\UserInterface;
+
 class PostChangeAmountEvent extends ChangeAmountEvent
 {
     protected $success;
