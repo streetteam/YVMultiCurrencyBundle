@@ -57,6 +57,7 @@ class CurrencyAccountManager extends BaseManager
         if (!is_object($currencyAccount)) {
             $currencyAccount = $this->create();
             $currencyAccount->setAccount($account);
+            $currencyAccount->setCurrency($currency);
             $currencyAccount->setAmount();
             
             $this->save($currencyAccount);
