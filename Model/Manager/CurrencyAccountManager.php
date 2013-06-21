@@ -13,27 +13,7 @@ use YV\MultiCurrencyBundle\Event\PostChangeAmountEvent;
 use YV\MultiCurrencyBundle\YVMultiCurrencyEvents;
 
 class CurrencyAccountManager extends BaseManager
-{
-    public function persist(CurrencyAccountInterface $currencyAccount)
-    {
-        parent::persist($currencyAccount);
-    }
-    
-    public function remove(CurrencyAccountInterface $currencyAccount)
-    {
-        parent::remove($currencyAccount);
-    }    
-    
-    public function delete(CurrencyAccountInterface $currencyAccount, $withFlush = true)
-    {
-        parent::delete($currencyAccount, $withFlush);
-    }    
-    
-    public function save(CurrencyAccountInterface $currencyAccount, $withFlush = true)
-    {
-        parent::save($currencyAccount, $withFlush);
-    }
-    
+{   
     /**
      * @param CurrencyAccountInterface $currencyAccount
      * @param ChangeAmountEvent $event
