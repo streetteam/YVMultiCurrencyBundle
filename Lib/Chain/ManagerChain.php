@@ -14,7 +14,7 @@ class ManagerChain extends BaseChain
 
     public function getManager($alias)
     {
-		return $this->get(YVMultiCurrencyBundle::PREFIX . '.' . $alias);
+		return $this->get($alias);
     }	
     
     public function __call($name, $arguments) 

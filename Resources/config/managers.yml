@@ -2,15 +2,23 @@ services:
     account_manager.default:
         class: YV\MultiCurrencyBundle\Model\ModelManager\AccountManager
         arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, %yv_multi_currency.account_class% ]
+        tags:
+            -  { name: managers.manager, alias: account_manager }
     
     currency_manager.default:
         class: YV\MultiCurrencyBundle\Model\ModelManager\CurrencyManager
         arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, %yv_multi_currency.currency_class% ]
+        tags:
+            -  { name: managers.manager, alias: currency_manager }
     
     currency_account_manager.default:
         class: YV\MultiCurrencyBundle\Model\ModelManager\CurrencyAccountManager
         arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, %yv_multi_currency.currency_account_class% ]
+        tags:
+            -  { name: managers.manager, alias: currency_account_manager }
     
     transaction_manager.default:
         class: YV\MultiCurrencyBundle\Model\ModelManager\TransactionManager
         arguments: [ @doctrine.orm.entity_manager, @event_dispatcher, %yv_multi_currency.transaction_class% ]
+        tags:
+            -  { name: managers.manager, alias: transaction_manager }
