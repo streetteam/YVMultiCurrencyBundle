@@ -49,7 +49,7 @@ class CurrencyAccountManager extends BaseManager
      * 
      * @return CurrencyAccountInterface
      */
-    private function getCurrencyAccount(AccountInterface $account, CurrencyInterface $currency)
+    public function getCurrencyAccount(AccountInterface $account, CurrencyInterface $currency)
     {
         $currencyAccount = $account->getCurrencyAccount($currency);
         /* @var $currencyAccount \YV\MultiCurrencyBundle\Model\CurrencyAccount */
