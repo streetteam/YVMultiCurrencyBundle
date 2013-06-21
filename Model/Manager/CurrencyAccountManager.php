@@ -52,11 +52,12 @@ class CurrencyAccountManager extends BaseManager
     private function getCurrencyAccount(AccountInterface $account, CurrencyInterface $currency)
     {
         $currencyAccount = $account->getCurrencyAccount($currency);
-        /* @var $currencyAccount CurrencyAccount */
+        /* @var $currencyAccount \YV\MultiCurrencyBundle\Model\CurrencyAccount */
         
         if ($currencyAccount === null) {
             $currencyAccount = $this->create();
             $currencyAccount->setAccount($account);
+            $currencyAccount->setAmount();
             
             $this->save($currencyAccount);
         }

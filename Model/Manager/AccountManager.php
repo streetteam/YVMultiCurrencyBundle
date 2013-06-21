@@ -23,8 +23,9 @@ class AccountManager extends BaseManager
             $account->setUser($user);
 
             $currencyAccount = $currencyAccountManager->create();
-            /* @var $currencyAccount CurrencyAccount */
+            /* @var $currencyAccount \YV\MultiCurrencyBundle\Model\CurrencyAccount */
             
+            $currencyAccount->setAmount();
             $currencyAccountManager->persist($currencyAccount);
         
             $account->addCurrencyAccount($currencyAccount);
