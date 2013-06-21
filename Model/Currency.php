@@ -64,7 +64,7 @@ abstract class Currency implements CurrencyInterface
     /**
      * @var string $imageName
      *
-     * @ORM\Column(name="image_name", type="string", length=255)
+     * @ORM\Column(name="image_name", type="string", length=255, nullable=true)
      */
     protected $imageName;     
     
