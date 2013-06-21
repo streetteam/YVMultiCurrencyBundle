@@ -2,8 +2,7 @@
 
 namespace YV\MultiCurrencyBundle\Lib\Chain;
 
-use YV\MultiCurrencyBundle\YVMultiCurrencyBundle;
-use YV\MultiCurrencyBundle\Model\ModelManager\BaseManager;
+use YV\MultiCurrencyBundle\Model\Manager\BaseManager;
 
 class ManagerChain extends BaseChain
 {
