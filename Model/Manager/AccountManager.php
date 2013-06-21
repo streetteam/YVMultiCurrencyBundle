@@ -13,22 +13,15 @@ class AccountManager extends BaseManager
      * @param UserInterface $user
      * @return AccountInterface
      */
-    public function getAccount(UserInterface $user, CurrencyAccountManager $currencyAccountManager)
+    public function getAccount(UserInterface $user)
     {
         $account = $user->getAccount();
         /* @var $account Account */        
 
-        if ($account === null) {
+        if (!is_object($account)) {
             $account = $this->create();
             $account->setUser($user);
-
-            $currencyAccount = $currencyAccountManager->create();
-            /* @var $currencyAccount \YV\MultiCurrencyBundle\Model\CurrencyAccount */
             
-            $currencyAccount->setAmount();
-            $currencyAccountManager->persist($currencyAccount);
-        
-            $account->addCurrencyAccount($currencyAccount);
             $this->save($account);
         }
         

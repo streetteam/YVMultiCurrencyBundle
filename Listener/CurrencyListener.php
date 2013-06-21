@@ -43,7 +43,7 @@ class CurrencyListener
         $user = $event->getUser();
         /* @var $user User */
 
-        $account = $accountManager->getAccount($user, $currencyAccountManager);
+        $account = $accountManager->getAccount($user);
         /* @var $account Account */
         
         $currencyAccount = $currencyAccountManager->getCurrencyAccount($account, $event->getCurrency());

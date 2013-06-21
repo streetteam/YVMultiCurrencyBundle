@@ -60,6 +60,8 @@ class CurrencyAccountManager extends BaseManager
             $currencyAccount->setCurrency($currency);
             $currencyAccount->setAmount();
             
+            $account->addCurrencyAccount($currencyAccount);
+            
             $this->save($currencyAccount);
         }
         
