@@ -2,6 +2,7 @@
 
 namespace YV\MultiCurrencyBundle\Lib\Chain;
 
+use YV\MultiCurrencyBundle\YVMultiCurrencyBundle;
 use YV\MultiCurrencyBundle\Model\ModelManager\BaseManager;
 
 class ManagerChain extends BaseChain
@@ -13,7 +14,7 @@ class ManagerChain extends BaseChain
 
     public function getManager($alias)
     {
-		return $this->get($alias);
+		return $this->get(YVMultiCurrencyBundle::PREFIX . '.' . $alias);
     }	
     
     public function __call($name, $arguments) 

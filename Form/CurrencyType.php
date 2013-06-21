@@ -5,6 +5,8 @@ namespace YV\MultiCurrencyBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+use YV\MultiCurrencyBundle\YVMultiCurrencyBundle;
+
 class CurrencyType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -16,6 +18,6 @@ class CurrencyType extends AbstractType
 
     public function getName()
     {
-        return 'yv_multi_currency_currency_type';
+        return YVMultiCurrencyBundle::PREFIX . '_currency_type';
     }
 }
