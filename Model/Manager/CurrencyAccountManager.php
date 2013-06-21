@@ -24,7 +24,7 @@ class CurrencyAccountManager extends BaseManager
         $result = true;
         
         $preEvent = new PreChangeAmountEvent($event->getCurrency(), $event->getUser(), $event->getAmount(), $event->getTitle());
-        $this->dispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_PRE_CHANGE_AMOUNT, $preEvent);
+        $this->eventDispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_PRE_CHANGE_AMOUNT, $preEvent);
         
         $newAmount = $currencyAccount->getAmount() + $event->getAmount();
         
@@ -36,7 +36,7 @@ class CurrencyAccountManager extends BaseManager
         }
         
         $postEvent = new PostChangeAmountEvent($event->getCurrency(), $event->getUser(), $event->getAmount(), $event->getTitle(), $result);
-        $this->dispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_POST_CHANGE_AMOUNT, $postEvent);
+        $this->eventDispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_POST_CHANGE_AMOUNT, $postEvent);
         
         return $result;
     }
@@ -54,7 +54,7 @@ class CurrencyAccountManager extends BaseManager
         $currencyAccount = $account->getCurrencyAccount($currency);
         /* @var $currencyAccount \YV\MultiCurrencyBundle\Model\CurrencyAccount */
         
-        if ($currencyAccount === null) {
+        if (!is_object($currencyAccount)) {
             $currencyAccount = $this->create();
             $currencyAccount->setAccount($account);
             $currencyAccount->setAmount();

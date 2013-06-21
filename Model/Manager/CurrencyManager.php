@@ -30,7 +30,7 @@ class CurrencyManager extends BaseManager
         /* @var $currency Currency */
         
         $preEvent = new PreDeleteCurrencyEvent($currency, $user);
-        $this->dispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_PRE_DELETE_CURRENCY, $preEvent);
+        $this->eventDispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_PRE_DELETE_CURRENCY, $preEvent);
         
         if($user->canDeleteCurrency()) {
             $this->delete($currency);
@@ -39,7 +39,7 @@ class CurrencyManager extends BaseManager
         }
         
         $postEvent = new PostDeleteCurrencyEvent($currency, $user, $result);
-        $this->dispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_POST_DELETE_CURRENCY, $postEvent);
+        $this->eventDispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_POST_DELETE_CURRENCY, $postEvent);
         
         return $result;
     }
@@ -59,7 +59,7 @@ class CurrencyManager extends BaseManager
         /* @var $currency Currency */
         
         $preEvent = new PreAddCurrencyEvent($currency, $user);
-        $this->dispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_PRE_ADD_CURRENCY, $preEvent);
+        $this->eventDispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_PRE_ADD_CURRENCY, $preEvent);
         
         if($user->canAddCurrency()) {
             $this->save($currency);
@@ -68,7 +68,7 @@ class CurrencyManager extends BaseManager
         }
         
         $postEvent = new PostAddCurrencyEvent($currency, $user, $result);
-        $this->dispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_POST_ADD_CURRENCY, $postEvent);
+        $this->eventDispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_POST_ADD_CURRENCY, $postEvent);
         
         return $result;
     }    

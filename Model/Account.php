@@ -147,7 +147,7 @@ abstract class Account implements AccountInterface
         foreach($this->getCurrencyAccounts() as $cAccount) {
             /* @var CurrencyAccount $cAccount */
             
-            if($currency->getId() == $cAccount->getCurrency()->getId()) {
+            if($cAccount && $cAccount->getCurrency() && $currency->getId() == $cAccount->getCurrency()->getId()) {
                 $currencyAccount = $cAccount;
                 break;
             }
