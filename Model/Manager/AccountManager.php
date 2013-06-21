@@ -22,6 +22,8 @@ class AccountManager extends BaseManager
             $account = $this->create();
             $account->setUser($user);
             
+            $user->setAccount($account);
+            
             $this->save($account);
         }
         

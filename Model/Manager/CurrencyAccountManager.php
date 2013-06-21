@@ -26,7 +26,7 @@ class CurrencyAccountManager extends BaseManager
         $preEvent = new PreChangeAmountEvent($event->getCurrency(), $event->getUser(), $event->getAmount(), $event->getTitle());
         $this->eventDispatcher->dispatch(YVMultiCurrencyEvents::MULTI_CURRENCY_PRE_CHANGE_AMOUNT, $preEvent);
         
-        $newAmount = $currencyAccount->getAmount() + $event->getAmount();
+        $newAmount = $currencyAccount->getAmount() + ((int)$event->getAmount());
         
         if($newAmount < 0) {
             $result = false;
