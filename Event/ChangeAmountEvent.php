@@ -17,12 +17,15 @@ class ChangeAmountEvent extends Event
     
     protected $title;
 
-    public function __construct(CurrencyInterface $currency, UserInterface $user, $amount, $title)
+    protected $options = array();
+    
+    public function __construct(CurrencyInterface $currency, UserInterface $user, $amount, $title, $options = array())
     {
         $this->currency = $currency;
         $this->user = $user;
         $this->amount = $amount;
         $this->title = $title;
+        $this->options = array_merge($this->options, $options);
     }
 
     public function getCurrency()
@@ -43,5 +46,18 @@ class ChangeAmountEvent extends Event
     public function getTitle()
     {
         return $this->title;
+    }
+    
+    public function getOptions()
+    {
+        return $this->options;
+    }
+    
+    /**
+     * @param string $key
+     */
+    public function getOption($key)
+    {
+        return isset($this->options[$key]) ? $this->options[$key] : false;
     }
 }

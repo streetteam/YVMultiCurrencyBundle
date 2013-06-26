@@ -9,9 +9,9 @@ class PostChangeAmountEvent extends ChangeAmountEvent
 {
     protected $success;
     
-    public function __construct(CurrencyInterface $currency, UserInterface $user, $amount, $title, $success = false)
+    public function __construct(CurrencyInterface $currency, UserInterface $user, $amount, $title, $options = array(), $success = false)
     {
-        parent::__construct($currency, $user, $amount, $title);
+        parent::__construct($currency, $user, $amount, $title, $options);
         
         $this->success = $success;
     }
